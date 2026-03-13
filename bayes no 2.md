@@ -21,4 +21,28 @@ Karena sebuah data biasanya memiliki banyak fitur, menghitung **P(X | C)** secar
 
 P(X | C) = P(x₁ | C) × P(x₂ | C) × ... × P(xₙ | C)
 
+
 Dengan demikian, algoritma cukup menghitung probabilitas masing-masing fitur terhadap kelas, kemudian mengalikan semua probabilitas tersebut dengan probabilitas awal kelas **P(C)**. Kelas dengan nilai probabilitas terbesar akan dipilih sebagai hasil klasifikasi.
+
+---
+
+## Penjelasan Dataset
+
+Proyek ini menggunakan dataset **Email Spam Collection**, sebuah kumpulan pesan email yang telah diberi label yang didapatkan dari kaggle. Dataset ini sering digunakan untuk menguji kinerja algoritma klasifikasi teks, khususnya untuk implementasi **Naive Bayes**.
+
+### Ringkasan Dataset
+* **Total Data**: 5.572 pesan.
+* **Format**: CSV.
+* **Sumber**: [Kaggle - Email Spam Detection Dataset](https://www.kaggle.com/datasets/shantanudhakadd/email-spam-detection-dataset-classification).
+* **Tugas**: Mengelompokkan pesan ke dalam kategori "Ham" atau "Spam".
+
+### Deskripsi Variabel
+Dataset ini memiliki dua kolom utama yang digunakan oleh algoritma Naive Bayes untuk menghitung probabilitas posterior $P(y|X)$:
+
+| Nama Kolom | Tipe Data | Deskripsi |
+| :--- | :--- | :--- |
+| **v1 (Target)** | Kategorikal | Label pesan. Nilainya adalah `ham` (pesan normal) atau `spam`. |
+| **v2 (Feature)** | Teks | Konten teks mentah dari pesan Email yang akan dianalisis. |
+
+### Implementasi Teori Bayes pada Dataset
+Dataset ini sangat ideal karena memungkinkan kita menunjukkan bagaimana algoritma menghitung $P(X|y)$, yaitu probabilitas kemunculan kata-kata tertentu dalam kategori pesan tertentu. Dengan menghitung **Prior Probability** $P(y)$ (persentase awal jumlah spam vs ham di dataset), model dapat memprediksi kategori dari pesan baru yang belum pernah dilihat sebelumnya.
